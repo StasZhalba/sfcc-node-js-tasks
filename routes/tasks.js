@@ -1,6 +1,9 @@
 const {Router, response} = require('express');
+const bodyParser = require('body-parser');
 const User = require('../models/User');
 const router = Router();
+
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 router.get('/', (req, res) => {
     res.render('index', {
@@ -37,7 +40,7 @@ router.get('/task2', (req, res) => {
     });
 });
 
-router.post('/user/create', async (req, res) => {
+router.post('/user/create', urlencodedParser, async (req, res) => {
     if (req.body.age <= 18) {
         res.send('Age should be more than 18');
 

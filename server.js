@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
-var favicon = require('serve-favicon');
-var path = require('path');
+const favicon = require('serve-favicon');
+const path = require('path');
 const tasksRoutes = require('./routes/tasks');
 
 const port = 49160;
@@ -19,7 +19,7 @@ app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 app.use(tasksRoutes);
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 async function start() {
     try {
