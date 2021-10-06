@@ -1,9 +1,6 @@
 const {Router, response} = require('express');
 const User = require('../models/User');
 const router = Router();
-const bodyParser = require('body-parser');
-
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 router.get('', (req, res) => {
     res.render('index', {
@@ -40,7 +37,7 @@ router.get('/task2', (req, res) => {
     });
 });
 
-router.post('/user/create', urlencodedParser, async (req, res) => {
+router.post('/user/create', async (req, res) => {
     if (req.body.age <= 18) {
         res.send('Age should be more than 18');
 
@@ -66,7 +63,7 @@ router.get('/task3', (req, res) => {
     });
 });
 
-router.get('/users/find', urlencodedParser, async (req, res) => {
+router.get('/users/find', async (req, res) => {
     const users = await User.find({email: req.query.email}, 'name surname');
     let usersNames = [];
 

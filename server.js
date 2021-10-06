@@ -17,7 +17,6 @@ app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 app.use(tasksRoutes);
-app.use(express.urlencoded({extended: true}));
 
 async function start() {
     try {
