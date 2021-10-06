@@ -28,7 +28,6 @@ async function start() {
             useUnifiedTopology: true
         });
 
-        app.listen(port, host);
     } catch (e) {
         console.log(e);
     }
@@ -36,4 +35,4 @@ async function start() {
 
 start();
 
-console.log(`running on http://${host}:${port}`);
+module.exports = app;
